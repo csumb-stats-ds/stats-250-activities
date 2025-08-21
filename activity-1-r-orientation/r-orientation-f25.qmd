@@ -1,6 +1,6 @@
 ---
 title: "R Orientation"
-fprmat: html
+format: html
 execute:
   echo: true
   error: false
