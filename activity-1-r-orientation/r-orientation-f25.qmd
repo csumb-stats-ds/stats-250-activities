@@ -1,0 +1,114 @@
+---
+title: "R Orientation"
+fprmat: html
+execute:
+  echo: true
+  error: false
+---
+
+Names: <Write group member names here>
+
+
+### Preamble
+
+Start here: Run the code chunk below by clicking the green arrow in the right corner -->
+```{r}
+#| label: setup
+#| include: false
+library(mosaic)
+```
+
+
+There is no output to this code; it just loads the packages we need to use. You can tell it worked by the green flashes on the side; if a `library()` function doesn't work, there will be a red color on the side and an error output.  
+
+
+If you haven't already, click on `r-orientation-student.Rproj` under the Files tab (it has the blue cube icon; you will have to re-open the .qmd file afterward). This will set the working directory to the project file location where data and other information is stored. Double check that the project is open by looking in the top right corner of R Studio. It should say "R Orientation", the name of the project. *(If you don't open a project, your code often won't run or save outputs in your project file!)*
+
+
+### 1. Help 
+
+
+#### 1.1 Code Chunks
+We have to tell our document what text is code and what text is just text. One way we can distinguish code in an .Rmd file is to put it in a **code chunk**. Within a code chunk, which is set apart by a line of ` ```{r} ` to begin and a line of ` ``` ` to end, every line is read as executable R code.
+
+For Windows OS- the key combination Ctrl+Alt+I creates a new code chunk (for Mac OS Cmd+Alt+I). You could instead use the green "Insert" button in the RMarkdown pane menu bar and select R to create a new code chunk. Insert a code chunk and then enter and run the code `?names`. (The code is what is inside the ` `, not including them.) What happens? 
+
+
+<Insert code chunk here>
+
+> Insert answer here
+
+
+
+
+### 2. Reading in Data
+
+For data that is not already stored in a R library, we must read in the data using a function that identifies the file type, location, and potentially some other characteristics of the data file. 
+
+
+#### 2.1. Data Object Creation
+Run the code below to read in the data file called "BodyTemp.csv" and call it `body`. A CSV file stands for Comma Separated Values. When saved, it uses a comma to indicate separate values. Once we read in and name a data set in R, we call it a **dataframe**. Place your cursor after the line of code chunk below and press Ctrl+Enter to run that line of code.
+
+```{r}
+#| label: bodytemp-data
+body <- read.csv("BodyTemp.csv")
+```
+
+#### 2.2. Looking at the Data
+Notice that each time you load in a data set, it appears with a brief description under the Environment Tab under Data (top right pane). You can click on the grid icon next to the data file to view the dataframe. Look at the `body` data. Notice there are three columns - these are our variables. Each row represents an individual. Each individual had their body temperature, pulse, and gender measured and recorded. The format of the data - rows are individual cases and columns are the variables measured on each individual case - is the standard format for almost all analyses we will do in STAT 250.  
+#### 2.3 Functions
+
+We often want to do something with the raw data though -- so we use a **function**. Run the code below. (You can run individual lines using the method taught above in 2.1, but you can execute the entire code chunk by using the green play button on the right of each code chunk.) Annotate the code using the comments to indicate what each line of code does.
+
+```{r}
+#| label: function-mean
+
+mean(~ BodyTemp, data = body) #this is a comment, it allows you to write a notes within your code that do not affect the code - what does this code do? <insert your answer>
+```
+
+
+```{r}
+#| label: function-tally
+
+tally(~ Gender, data = body) # What does this code do? 
+```
+
+
+*Note: we have to identify the column for R to use inside a particular dataframe -- you need both parts of the name to call the data (think of it like a first and last name). So the first line of code above calculated the mean (*`mean()`*) of the variable* `BodyTemp` *in the dataframe* `body` *). *
+
+
+#### 2.4 Try it Yourself!
+Create a new R code chunk and calculate the mean for the *Pulse* variable. Don't forget that capitalization and syntax matter!
+
+
+<Insert your code chunk here>
+
+
+
+#### 2.5 Data Types
+
+When you looked at the dataframe, you may have noticed that `Gender` was coded with 0's and 1's, but those stand in as code for females and males. These data are then categorical, not numeric, and we want R to treat them that way. Run the line of code below.
+
+```{r}
+#| label: numeric-data
+is.numeric(body$Gender)
+```
+
+*Note that this code does not use the formula template with the ~ in front of the vector. It uses `Dataframe$Variable` as its input with no other arguments.*
+
+
+What do you think this code is asking? What does the output R returns tell you about how R is reading the data?
+
+> Insert your answer here
+
+
+*Note: we will learn how to fix this later in the semester!*
+
+
+
+#### Rendering
+
+The file you have been adding code to is called an Quarto Markdown (qmd) file. The amazing thing about this file is that it can be rendered into a different type of document that contains both code and output. At the top of the pane, press "Render" and see what happens! If you get an error that you don't have time to fix, change at the top `error: true`.
+
+(If you have extra time click the gear icon at the top of the pane and click "Preview in Viewer Pane". Render the document again -- what changed? You can choose which way you prefer to view your rendered html documents in your own server!)
+
