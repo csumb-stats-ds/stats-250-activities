@@ -29,9 +29,9 @@ If you haven't already, click on `r-orientation-student.Rproj` under the Files t
 
 
 #### 1.1 Code Chunks
-We have to tell our document what text is code and what text is just text. One way we can distinguish code in an .Rmd file is to put it in a **code chunk**. Within a code chunk, which is set apart by a line of ` ```{r} ` to begin and a line of ` ``` ` to end, every line is read as executable R code.
+We have to tell our document what text is code and what text is just text. One way we can distinguish code in an .qmd file is to put it in a **code chunk**. Within a code chunk, which is set apart by a line of ` ```{r} ` to begin and a line of ` ``` ` to end, every line is read as executable R code.
 
-For Windows OS- the key combination Ctrl+Alt+I creates a new code chunk (for Mac OS Cmd+Alt+I). You could instead use the green "Insert" button in the RMarkdown pane menu bar and select R to create a new code chunk. Insert a code chunk and then enter and run the code `?names`. (The code is what is inside the ` `, not including them.) What happens? 
+For Windows OS- the key combination Ctrl+Alt+I creates a new code chunk (for Mac OS Cmd+Option+I). You could instead use the green "Insert" button in the RMarkdown pane menu bar and select R to create a new code chunk. Insert a code chunk and then enter and run the code `?names`. (The code is what is inside the ` `, not including them.) What happens? 
 
 
 <Insert code chunk here>
