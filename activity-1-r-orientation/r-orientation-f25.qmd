@@ -1,6 +1,7 @@
 ---
 title: "R Orientation"
 format: html
+embed-resources: true
 execute:
   echo: true
   error: false
